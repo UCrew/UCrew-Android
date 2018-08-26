@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity
 {
     private Button registerButton;
+    private Button signinButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -16,17 +17,32 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //links the Button Variable to registerButton on xml
         registerButton = (Button) findViewById(R.id.registerButton);
+        signinButton = (Button) findViewById(R.id.signinButton);
+
+        //when you click on the registerbutton it will call the method.
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openregister();
             }
         });
+        signinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openmainmenu();
+            }
+        });
     }
     public void openregister()
     {
         Intent intent = new Intent(this, register.class);
+        startActivity(intent);
+    }
+    public void openmainmenu()
+    {
+        Intent intent = new Intent(this, mainmenu.class);
         startActivity(intent);
     }
 }
