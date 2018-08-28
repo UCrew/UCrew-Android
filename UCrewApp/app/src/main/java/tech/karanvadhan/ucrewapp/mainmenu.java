@@ -3,19 +3,23 @@ package tech.karanvadhan.ucrewapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.support.v4.view.GestureDetectorCompat;
+import android.view.GestureDetector;
 
-public class mainmenu extends AppCompatActivity
+public class mainmenu extends AppCompatActivity implements GestureDetector.OnGestureListener,View.OnTouchListener
 {
+    private static final String TAG = "MainMenu";
+
     private Button buttonLeft;
     private Button buttonRight;
     private Button buttonUp;
     private Button buttonDown;
+    private GestureDetector detectswipes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -23,13 +27,19 @@ public class mainmenu extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
 
+        buttonLeft.setOnTouchListener(this);
+        buttonRight.setOnTouchListener(this);
+        buttonDown.setOnTouchListener(this);
+        buttonUp.setOnTouchListener(this);
+        detectswipes = new GestureDetector(this,this);
+
         //links the Button Variable to Button on xml
         buttonLeft = (Button) findViewById(R.id.buttonLeft);
         buttonRight = (Button) findViewById(R.id.buttonRight);
         buttonUp = (Button) findViewById(R.id.buttonUp);
         buttonDown = (Button) findViewById(R.id.buttonDown);
 
-        //when you click on the buttonLeft it will call the method.
+        //when you click button it calls method.
         buttonLeft.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -38,7 +48,6 @@ public class mainmenu extends AppCompatActivity
                 openschool();
             }
         });
-        //when you click on the buttonRight it will call the method.
         buttonRight.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -47,7 +56,6 @@ public class mainmenu extends AppCompatActivity
                 openevents();
             }
         });
-        //when you click on the buttonUp it will call the method.
         buttonUp.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -56,7 +64,6 @@ public class mainmenu extends AppCompatActivity
                 openmessages();
             }
         });
-        //when you click on the buttonUp it will call the method.
         buttonDown.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -85,5 +92,78 @@ public class mainmenu extends AppCompatActivity
     {
         Intent intent = new Intent(this, profile.class);
         startActivity(intent);
+    }
+
+    //onTouch Methods
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event)
+    {
+        Log.d(TAG,"onTouch: Called");
+        if(view.getId()==R.id.buttonLeft)
+        {
+            openschool();
+            detectswipes.onTouchEvent(event);
+            return true;
+        }
+        if(view.getId()==R.id.buttonRight)
+        {
+            openevents();
+            detectswipes.onTouchEvent(event);
+            return true;
+        }
+        if(view.getId()==R.id.buttonUp)
+        {
+            openmessages();
+            detectswipes.onTouchEvent(event);
+            return true;
+        }
+        if(view.getId()==R.id.buttonDown)
+        {
+            openprofile();
+            detectswipes.onTouchEvent(event);
+            return true;
+        }
+    }
+
+    //GestureDetector Methods
+
+    @Override
+    public boolean onDown(MotionEvent e)
+    {
+        Log.d(TAG,"onDown: Called");
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e)
+    {
+        Log.d(TAG,"onShowPress: Called");
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e)
+    {
+        Log.d(TAG,"onSingleTapUp: Called");
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        Log.d(TAG,"onScroll: Called");
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e)
+    {
+        Log.d(TAG,"onLongPress: Called");
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
+    {
+        Log.d(TAG,"onFling: Called");
+        return false;
     }
 }
