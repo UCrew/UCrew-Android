@@ -27,10 +27,6 @@ public class mainmenu extends AppCompatActivity implements GestureDetector.OnGes
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
 
-        buttonLeft.setOnTouchListener(this);
-        buttonRight.setOnTouchListener(this);
-        buttonDown.setOnTouchListener(this);
-        buttonUp.setOnTouchListener(this);
         detectswipes = new GestureDetector(this,this);
 
         //links the Button Variable to Button on xml
@@ -39,39 +35,10 @@ public class mainmenu extends AppCompatActivity implements GestureDetector.OnGes
         buttonUp = (Button) findViewById(R.id.buttonUp);
         buttonDown = (Button) findViewById(R.id.buttonDown);
 
-        //when you click button it calls method.
-        buttonLeft.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                openschool();
-            }
-        });
-        buttonRight.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                openevents();
-            }
-        });
-        buttonUp.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                openmessages();
-            }
-        });
-        buttonDown.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                openprofile();
-            }
-        });
+        buttonLeft.setOnTouchListener(this);
+        buttonRight.setOnTouchListener(this);
+        buttonDown.setOnTouchListener(this);
+        buttonUp.setOnTouchListener(this);
     }
     public void openschool()
     {
@@ -100,30 +67,31 @@ public class mainmenu extends AppCompatActivity implements GestureDetector.OnGes
     public boolean onTouch(View v, MotionEvent event)
     {
         Log.d(TAG,"onTouch: Called");
-        if(view.getId()==R.id.buttonLeft)
+        if(v.getId()==R.id.buttonLeft)
         {
             openschool();
             detectswipes.onTouchEvent(event);
             return true;
         }
-        if(view.getId()==R.id.buttonRight)
+        if(v.getId()==R.id.buttonRight)
         {
             openevents();
             detectswipes.onTouchEvent(event);
             return true;
         }
-        if(view.getId()==R.id.buttonUp)
+        if(v.getId()==R.id.buttonUp)
         {
             openmessages();
             detectswipes.onTouchEvent(event);
             return true;
         }
-        if(view.getId()==R.id.buttonDown)
+        if(v.getId()==R.id.buttonDown)
         {
             openprofile();
             detectswipes.onTouchEvent(event);
             return true;
         }
+        return true;
     }
 
     //GestureDetector Methods
