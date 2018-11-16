@@ -35,10 +35,31 @@ public class mainmenu extends AppCompatActivity implements GestureDetector.OnGes
         buttonUp = (Button) findViewById(R.id.buttonUp);
         buttonDown = (Button) findViewById(R.id.buttonDown);
 
-        buttonLeft.setOnTouchListener(this);
-        buttonRight.setOnTouchListener(this);
-        buttonDown.setOnTouchListener(this);
-        buttonUp.setOnTouchListener(this);
+        buttonUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openmessages();
+            }
+        });
+        buttonDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openprofile();
+            }
+        });
+        buttonLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openschool();
+            }
+        });
+        buttonRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openevents();
+            }
+        });
+
     }
     public void openschool()
     {
@@ -67,30 +88,6 @@ public class mainmenu extends AppCompatActivity implements GestureDetector.OnGes
     public boolean onTouch(View v, MotionEvent event)
     {
         Log.d(TAG,"onTouch: Called");
-        if(v.getId()==R.id.buttonLeft)
-        {
-            openschool();
-            detectswipes.onTouchEvent(event);
-            return true;
-        }
-        if(v.getId()==R.id.buttonRight)
-        {
-            openevents();
-            detectswipes.onTouchEvent(event);
-            return true;
-        }
-        if(v.getId()==R.id.buttonUp)
-        {
-            openmessages();
-            detectswipes.onTouchEvent(event);
-            return true;
-        }
-        if(v.getId()==R.id.buttonDown)
-        {
-            openprofile();
-            detectswipes.onTouchEvent(event);
-            return true;
-        }
         return true;
     }
 
