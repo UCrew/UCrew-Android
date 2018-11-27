@@ -22,16 +22,18 @@ public class MainActivity extends AppCompatActivity
         signinButton = (Button) findViewById(R.id.signinButton);
 
         //when you click on the registerbutton it will call the method.
-        registerButton.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 openregister();
             }
         });
-        signinButton.setOnClickListener(new View.OnClickListener() {
+        signinButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
-                openmainmenu();
+                opensignIn();
             }
         });
     }
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this, register.class);
         startActivity(intent);
     }
-    public void openmainmenu()
+    public void opensignIn()
     {
         Intent intent = new Intent(this, mainmenu.class);
         startActivity(intent);

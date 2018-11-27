@@ -1,13 +1,28 @@
 package tech.karanvadhan.ucrewapp;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class messages extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messages);
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class messages extends Fragment
+{
+    public static messages newInstance()
+    {
+        messages fragment = new messages();
+        return fragment;
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        super.onCreateView(inflater,container,savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_messages,container,false);
+        return view;
     }
 }

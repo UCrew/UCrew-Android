@@ -20,15 +20,11 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter
         switch(position)
         {
             case 0:
-                return dashboard.newInstance();
+                return events.newInstance();//return fragment events
             case 1:
-                return profile.newInstance(); //return fragment profile
+                return dashboard.newInstance();
             case 2:
-                return university.newInstance(); //return fragment university
-            case 3:
-                return events.newInstance(); //return fragment events
-            case 4:
-                return messages.newInstance();//return fragment messages
+                return university.newInstance();
         }
         return null;
     }
@@ -36,6 +32,6 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter
     @Override
     public int getCount()
     {
-        return 5;
+        return 3;
     }
 }
