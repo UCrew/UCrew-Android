@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5160dd"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/signinButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#ffffff"
+        android:text="Sign In"
+        android:textColor="#5160dd"
+        app:layout_constraintBottom_toTopOf="@+id/registerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="#ffffff"
+        android:textColorHint="#d3d3d3"
+        app:layout_constraintBottom_toTopOf="@+id/signinButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/emailText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:hint="University Email"
+        android:inputType="textEmailAddress"
+        android:textColor="#ffffff"
+        android:textColorHint="#d3d3d3"
+        app:layout_constraintBottom_toTopOf="@+id/passwordText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#ffffff"
+        android:text="Register"
+        android:textColor="#5160dd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/emailText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ucrewlogo5" />
+
+</android.support.constraint.ConstraintLayout>
