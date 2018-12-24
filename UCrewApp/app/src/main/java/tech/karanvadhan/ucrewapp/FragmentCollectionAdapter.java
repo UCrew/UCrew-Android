@@ -1,6 +1,5 @@
 package tech.karanvadhan.ucrewapp;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -24,7 +23,7 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter
             case 1:
                 return dashboard.newInstance();
             case 2:
-                return university.newInstance();
+                return classes.newInstance();
         }
         return null;
     }

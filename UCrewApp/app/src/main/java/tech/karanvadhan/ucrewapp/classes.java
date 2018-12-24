@@ -11,15 +11,14 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class university extends Fragment
+public class classes extends Fragment
 {
-    public static university newInstance()
+    public static classes newInstance()
     {
-        university fragment = new university();
+        classes fragment = new classes();
         return fragment;
     }
 
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         super.onCreateView(inflater,container,savedInstanceState);
